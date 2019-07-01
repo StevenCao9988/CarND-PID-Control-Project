@@ -33,7 +33,7 @@ string hasData(string s) {
 int main() {
   uWS::Hub h;
 
-  PID pid;
+  PID pid_s;
   /**
    * TODO: Initialize the pid variable.
    */
@@ -63,8 +63,17 @@ int main() {
            * NOTE: Feel free to play around with the throttle and speed.
            *   Maybe use another PID controller to control the speed!
            */
-          
+		  pid_s.UpdateError(cte);
+		  steer_value = -pid_s.Kp * p_error \\
+			  -pid_s.Ki * i_error \\
+			  -pid_s.Kd * d_error;
+
           // DEBUG
+		  std::cout << "Steer value breakdown: " << std::endl;
+		  std::cout << "P: " << -pid_s.Kp * p_error << std::endl;
+		  std::cout << "I: " << -pid_s.Ki * i_error << std::endl;
+		  std::cout << "D: " << -pid_s.Kd * d_error << std::endl;
+
           std::cout << "CTE: " << cte << " Steering Value: " << steer_value 
                     << std::endl;
 
