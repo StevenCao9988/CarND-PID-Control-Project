@@ -2,7 +2,17 @@
 Self-Driving Car Engineer Nanodegree Program
 
 ---
-
+## tunning parameter
+  1. when ony can steering works, and tune a Barely usable initial the PID-parameter of steering;
+  2. set  PID-parameter of steering precisely by twiddle algorithm;
+  3. remain the PID-parameter of steering, and tune a Barely usable initial the PID-parameter of throttle;
+  4. set  PID-parameter of throttle precisely by twiddle algorithm;
+  
+## Result
+   It contains two video：
+   video 1. tune a Barely usable initial the PID-parameter of steering;
+   video 2. mission complete;
+      
 ## Dependencies
 
 * cmake >= 3.5
