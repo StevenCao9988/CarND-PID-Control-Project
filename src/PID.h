@@ -1,5 +1,11 @@
 #ifndef PID_H
 #define PID_H
+#include <vector>
+#include <numeric>
+#include <math.h>
+#include <iostream>
+#include <string>
+using std::string;
 
 class PID {
  public:
@@ -31,7 +37,7 @@ class PID {
    */
   double TotalError();
 
- private:
+ // private:  调试阶段
   /**
    * PID Errors
    */
@@ -45,6 +51,12 @@ class PID {
   double Kp;
   double Ki;
   double Kd;
+
+  // 参数自动调节需要的变量
+  int twiddle_flg;     // 是否调节
+  std::vector<double> dp;    // 每次变动的步进值
+  std::vector<double> p;    // 每次变动的步进值
+
 };
 
 #endif  // PID_H
